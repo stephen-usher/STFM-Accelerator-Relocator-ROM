@@ -1,0 +1,142 @@
+
+(rules PCB STFM-TF536-Relocator+ROM-MkII
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout on)
+    (eu.mihosoft.freerouting.autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 46012)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.5)
+    )
+    (layer_rule In1.Cu
+      (active off)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.5)
+    )
+    (layer_rule In2.Cu
+      (active off)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.5)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.7)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 300.2 (type default_Clock))
+    (clear 50.0 (type smd_smd))
+    (clear 300.2 (type smd_Clock))
+    (clear 300.2 (type "kicad_default"_Clock))
+    (clear 300.2 (type Clock_Clock))
+    (clear 300.2 (type Clock_Power))
+  )
+  (padstack "Via[0-3]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-3]_800:400_um" "Via[0-3]_800:400_um" default
+  )
+  (via 
+    "Via[0-3]_800:400_um-kicad_default" "Via[0-3]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_800:400_um-Clock" "Via[0-3]_800:400_um" Clock
+  )
+  (via 
+    "Via[0-3]_800:400_um-Power" "Via[0-3]_800:400_um" Power
+  )
+  (via_rule
+    default "Via[0-3]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-3]_800:400_um-kicad_default"
+  )
+  (via_rule
+    Clock "Via[0-3]_800:400_um-Clock"
+  )
+  (via_rule
+    Power "Via[0-3]_800:400_um-Power"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    /D5 /A4 /D6 /A3 /D7 /A2 /D8 /A1
+    /D9 /FC0 /D10 /FC1 /D11 /FC2 /D12 /IPL0
+    /D13 /IPL1 /D14 /IPL2 /D15 /BERR /VPA /A23
+    /E /A22 /VMA /A21 /RESET /HALT /A20 /A19
+    /A18 /A17 /BR /A16 /BGACK /A15 /BG /A14
+    /DTACK /A13 /RW /A12 /LDS /A11 /UDS /A10
+    /AS /A9 /D0 /A8 /D1 /A7 /D2 /A6
+    /D3 /A5 /D4 "/_ROM2" "Net-(J2-Pad2)" /S /BG1 /BR1
+    /BGACK1 /E1 "/_ROE" /E2 /BR2 /BGACK2 /BG2 "Net-(J5-Pad2)"
+    /HALT1 /HALT2 "Net-(J4-Pad2)" "Net-(J4-Pad1)" /TURBOLED "Net-(J6-Pad4)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Clock
+    /CLK
+    (clearance_class Clock)
+    (via_rule Clock)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Power
+    GND VCC
+    (clearance_class Power)
+    (via_rule Power)
+    (rule
+      (width 700.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

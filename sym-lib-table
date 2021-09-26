@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name Memory_EPROM)(type Legacy)(uri ${KIPRJMOD}/Memory_EPROM.lib)(options "")(descr ""))
+  (lib (name STFM-TF536-Relocator+ROM-MkII)(type Legacy)(uri ${KIPRJMOD}/STFM-TF536-Relocator+ROM-MkII.lib)(options "")(descr ""))
+  (lib (name 74HCT157D)(type Legacy)(uri ${KIPRJMOD}/74HCT157D.lib)(options "")(descr ""))
+)
