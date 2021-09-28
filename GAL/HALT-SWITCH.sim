@@ -1,0 +1,24 @@
+%SIGNAL
+PIN  18 = !H1OUT 
+PIN  17 = !H2OUT 
+PIN   2 = !HALTIN 
+PIN   1 =  SWITCH 
+PIN  16 =  TURBOLED 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+H1OUT =>
+    !HALTIN
+  # SWITCH
+
+H2OUT =>
+    !HALTIN
+  # !SWITCH
+
+TURBOLED =>
+    !SWITCH
+
+%END

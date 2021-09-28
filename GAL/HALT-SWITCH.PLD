@@ -1,0 +1,26 @@
+Name     CPU HALT line switcher ;
+PartNo   00 ;
+Date     24/10/2020 ;
+Revision 01 ;
+Designer Engineer ;
+Company  Personal ;
+Assembly None ;
+Location  ;
+Device   g16v8 ;
+
+/* *************** INPUT PINS *********************/
+PIN  1   =  SWITCH                       ; /*                                 */ 
+PIN  2   =  !HALTIN                       ; /*                                 */ 
+/* PIN  3   =  !H1IN                       ; /*                                 */ 
+/* PIN  4   =  !H2IN                       ; /*                                 */ 
+
+/* *************** OUTPUT PINS *********************/
+/* PIN  19   =  !HALTOUT                       ; /*                                 */ 
+PIN  18   =  !H1OUT;
+PIN  17   =  !H2OUT;
+PIN  16   =  TURBOLED;
+
+H1OUT = HALTIN # SWITCH;
+H2OUT = HALTIN # !SWITCH;
+
+TURBOLED = !SWITCH;

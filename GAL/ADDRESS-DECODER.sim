@@ -1,0 +1,25 @@
+%SIGNAL
+PIN   1 =  A18 
+PIN   2 =  A19 
+PIN   3 =  A20 
+PIN   4 =  A21 
+PIN   5 =  A22 
+PIN   6 =  A23 
+PIN   8 = !AS 
+PIN  19 = !ROE 
+PIN   7 = !ROM2 
+PIN   9 =  RW 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+ROE =>
+    !A19 & !A20 & A21 & A22 & A23 & !AS & RW
+  # !ROM2
+
+SELECTED =>
+    !A19 & !A20 & A21 & A22 & A23 & AS & RW
+
+%END

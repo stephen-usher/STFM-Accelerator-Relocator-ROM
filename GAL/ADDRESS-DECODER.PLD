@@ -1,0 +1,30 @@
+Name     TOS 2.06 ROM decoder (512K) ;
+PartNo   00 ;
+Date     24/10/2020 ;
+Revision 01 ;
+Designer Engineer ;
+Company  Personal ;
+Assembly None ;
+Location  ;
+Device   g16v8 ;
+
+/* *************** INPUT PINS *********************/
+PIN  1   =  A18                       ; /*                                 */ 
+PIN  2   =  A19                       ; /*                                 */ 
+PIN  3   =  A20                       ; /*                                 */ 
+PIN  4   =  A21                       ; /*                                 */ 
+PIN  5   =  A22                       ; /*                                 */ 
+PIN  6   =  A23                       ; /*                                 */ 
+PIN  7   =  !ROM2                       ; /*                                 */ 
+PIN  8   =  !AS                       ; /*                                 */ 
+PIN  9   =  RW                       ; /*                                 */ 
+
+/* *************** OUTPUT PINS *********************/
+PIN  19   =  !ROE                       ; /*                                 */ 
+
+
+
+SELECTED=RW & AS & !A19 & !A20 & A21 & A22 & A23;
+
+ROE=SELECTED # ROM2;
+
